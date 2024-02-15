@@ -274,3 +274,289 @@ go
 	from OD
 	group by [COUNTRY (DISPLAY)]
 	order by Population_Size_Covered_by_Survey;
+	---------------------------------------------------------------------------------
+
+	-- Count of Urban Population Using Safely Managed Drinking Water Service
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'urban' then 1 else 0 end) as Number_of_Urban_Residence
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using safely managed drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Urban_Residence desc;
+
+	-- Count of Rural Population Using Safely Managed Drinking Water Service
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Rural' then 1 else 0 end) as Number_of_Rural_Residence
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using safely managed drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Rural_Residence desc;
+	
+	-- Count of Total Population Using Safely Managed Drinking Water Service
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Total' then 1 else 0 end) as Number_of_Total_Residence
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using safely managed drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Total_Residence desc;
+
+	------------------------------------------------------------------------------------------------
+
+	-- % of Urban population using Safely Managed Drinking Water Service
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Urban' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using safely managed drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+
+	-- % of Rural population using Safely Managed Drinking Water Service
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Rural' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using safely managed drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+
+	-- % of Total population using Safely Managed Drinking Water Service
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Total' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using safely managed drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+	-------------------------------------------------------------------------------------------------
+
+	-- Count of Urban Residence using at least basic Drinking Water service
+
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'urban' then 1 else 0 end) as Number_of_Urban_Residence
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using at least basic drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Urban_Residence desc;
+
+	-- Count of Rural Population using Using at least basic Drinking Water service
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Rural' then 1 else 0 end) as Number_of_Rural_Residence
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using at least basic drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Rural_Residence desc;
+	
+	-- Count of Total Population Using at least Drinking Water service
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Total' then 1 else 0 end) as Number_of_Total_Residence
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using at least basic drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Total_Residence desc;
+
+	-------------------------------------------------------------------------------------------------
+
+	-- % of Urban population using at least Basic Drinking Water service
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Urban' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using at least basic drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+
+	-- % of Rural population using at least Basic Drinking Water service
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Rural' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using at least basic drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+
+	-- % of Total population using at least Basic Drinking Water service
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Total' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMDWS
+	where [GHO (DISPLAY)] = 'Population using at least basic drinking-water services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+
+
+	-------------------------------------------------------------------------------------------------
+
+	-- Count of Urban Population Using Safely Managed Sanitation Services
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'urban' then 1 else 0 end) as Number_of_Urban_Residence
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using safely managed sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Urban_Residence desc;
+
+	-- Count of Rural Population Using Safely Managed Sanitation Services 
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Rural' then 1 else 0 end) as Number_of_Rural_Residence
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using safely managed sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Rural_Residence desc;
+	
+	-- Count of Total Population Using Safely Managed Sanitation Services 
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Total' then 1 else 0 end) as Number_of_Total_Residence
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using safely managed sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Total_Residence desc;
+
+	------------------------------------------------------------------------------------------------
+
+	-- % of Urban population using Safely Managed Sanitation Service
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Urban' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using safely managed sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+
+	-- % of Rural population using Safely Managed Sanitation Service
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Rural' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using safely managed sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+
+	-- % of Total population using Safely Managed Sanitation Service
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Total' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using safely managed sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+	-------------------------------------------------------------------------------------------------
+
+	-- Count of Urban Residence using at least basic sanitation services
+
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'urban' then 1 else 0 end) as Number_of_Urban_Residence
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using at least basic sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Urban_Residence desc;
+
+	-- Count of Rural Population using Using at least basic sanitation services
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Rural' then 1 else 0 end) as Number_of_Rural_Residence
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using at least basic sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Rural_Residence desc;
+	
+	-- Count of Total Population Using at least basic sanitation services
+	select [COUNTRY (DISPLAY)] as Country, SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Total' then 1 else 0 end) as Number_of_Total_Residence
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using at least basic sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Total_Residence desc;
+
+	-------------------------------------------------------------------------------------------------
+
+	-- % of Urban population using at least Basic Sanitation Services
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Urban' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using at least basic sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+
+	-- % of Rural population using at least Basic Sanitation Services
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Rural' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using at least basic sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+
+	-- % of Total population using at least Basic Sanitation Services
+
+	select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Total' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Safely_Managed_Sanitation_Service
+	from BSMSS
+	where [GHO (DISPLAY)] = 'Population using at least basic sanitation services (%)'
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Safely_Managed_Sanitation_Service desc;
+	
+	-------------------------------------------------------------------------------------------------
+
+	-- Count of Urban Population with Basic Hand Washing Facilities at Home 
+	select [COUNTRY (DISPLAY)], COUNT([RESIDENCEAREATYPE (DISPLAY)]) as Number_of_Residence
+	from HWS
+	where [RESIDENCEAREATYPE (DISPLAY)] = 'Urban'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Residence desc;
+
+	-- Count of Rural Population with Basic Hand Washing Facilities at Home 
+	select [COUNTRY (DISPLAY)], COUNT([RESIDENCEAREATYPE (DISPLAY)]) as Number_of_Residence
+	from HWS
+	where [RESIDENCEAREATYPE (DISPLAY)] = 'Rural'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Residence desc;
+
+
+	-- Count of Total Population with Basic Hand Washing Facilities at Home 
+	select [COUNTRY (DISPLAY)], COUNT([RESIDENCEAREATYPE (DISPLAY)]) as Number_of_Residence
+	from HWS
+	where [RESIDENCEAREATYPE (DISPLAY)] = 'Total'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Residence desc;
+
+
+	-------------------------------------------------------------------------------------------------
+
+	-- % of Urban Population who practise Open Defication in each country
+	Select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Urban' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Open_Defication
+	from HWS
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Open_Defication desc;
+
+	-- % of Rural Population who practise Open Defication in each country
+	Select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Rural' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Open_Defication
+	from HWS
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Open_Defication desc;
+
+	-- % of Rural Population who practise Open Defication in each country
+	Select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Total' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Open_Defication
+	from HWS
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Open_Defication desc;
+
+	-------------------------------------------------------------------------------------------------
+
+	-- Count of Urban Population who Practise Open Defication in each country
+
+	select [COUNTRY (DISPLAY)] as Country, COUNT([RESIDENCEAREATYPE (DISPLAY)]) as Number_of_Residence
+	from OD
+	where [RESIDENCEAREATYPE (DISPLAY)] = 'Urban'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Residence;
+
+	-- Count of Rural Population who Practise Open Defication in each country
+	select [COUNTRY (DISPLAY)] as Country, COUNT([RESIDENCEAREATYPE (DISPLAY)]) as Number_of_Residence
+	from OD
+	where [RESIDENCEAREATYPE (DISPLAY)] = 'Rural'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Residence;
+
+	-- Count of Total Population who Practise Open Defication in each country
+
+	select [COUNTRY (DISPLAY)] as Country, COUNT([RESIDENCEAREATYPE (DISPLAY)]) as Number_of_Residence
+	from OD
+	where [RESIDENCEAREATYPE (DISPLAY)] = 'Total'
+	group by [COUNTRY (DISPLAY)]
+	order by Number_of_Residence;
+
+	--------------------------------------------------------------------------------------------------
+
+	-- % of Urban Population who practise Open Defication in each country
+	Select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Urban' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Open_Defication
+	from OD
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Open_Defication desc;
+
+	-- % of Rural Population who practise Open Defication in each country
+	Select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Rural' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Open_Defication
+	from OD
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Open_Defication desc;
+
+	-- % of Total Population who practise Open Defication in each country
+	Select [COUNTRY (DISPLAY)] as Country, CONCAT(CAST(100.0 * SUM(case when [RESIDENCEAREATYPE (DISPLAY)] = 'Total' then 1 else 0 end)/ COUNT(*) as float), '%') as Percentage_of_Open_Defication
+	from OD
+	group by [COUNTRY (DISPLAY)]
+	order by Percentage_of_Open_Defication desc;
